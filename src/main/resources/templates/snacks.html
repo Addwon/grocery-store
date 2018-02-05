@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Snacks</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/snacks}"
+      th:object="${snacks}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+    Snack Name :<input type="text" th:field="*{snackName}" />
+    <span th:if="${#fields.hasErrors('snackName')}"
+          th:errors="*{snackName}"></span><br />
+
+    Crunchiness :<select th:field="*{crunchiness}">
+    <option value="LessCrunchy">Less Crunchy</option>
+    <option value="Crunchy">Crunchy</option>
+    <option value="MoreCrunchy">More Crunchy</option></select><br />
+
+    Price :<input type="text" th:field="*{price}" />
+    <span th:if="${#fields.hasErrors('price')}"
+          th:errors="*{price}"></span><br />
+
+    Quantity :<input type="text" th:field="*{quantity}" />
+    <span th:if="${#fields.hasErrors('quantity')}"
+          th:errors="*{quantity}"></span><br />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cosmetics</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/cosmetics}"
+      th:object="${cosmetics}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+    Brand :<input type="text" th:field="*{brand}" />
+    <span th:if="${#fields.hasErrors('brand')}"
+          th:errors="*{brand}"></span><br />
+    Type :<input type="text" th:field="*{type}" />
+    <span th:if="${#fields.hasErrors('type')}"
+          th:errors="*{type}"></span><br />
+
+    Price :<input type="text" th:field="*{price}" />
+    <span th:if="${#fields.hasErrors('price')}"
+          th:errors="*{price}"></span><br />
+
+    Popularity :<select th:field="*{popularity}">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option></select><br />
+
+    Quantity :<input type="text" th:field="*{quantity}" />
+    <span th:if="${#fields.hasErrors('quantity')}"
+          th:errors="*{quantity}"></span><br />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>

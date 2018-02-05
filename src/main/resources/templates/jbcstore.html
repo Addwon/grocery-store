@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>JBCStore</title>
+</head>
+<body>
+<h1>JBC Store</h1><br />
+<h3>Inventory</h3><br />
+<u><b>Cleaning Items</b></u><br />
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Strength</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+    <tr th:each="cleaningitems : ${cleaningitems_}">
+        <td th:text="${cleaningitems.name}"></td>
+        <td th:text="${cleaningitems.strength}"></td>
+        <td th:text="${cleaningitems.price}"></td>
+        <td th:text="${cleaningitems.quantity}"></td>
+    </tr>
+</table>
+<u><b>Cosmetics</b></u><br />
+<table>
+    <tr>
+        <th>Brand</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Popularity</th>
+        <th>Quantity</th>
+    </tr>
+    <tr th:each="cosmetics : ${cosmetics_}">
+        <td th:text="${cosmetics.brand}"></td>
+        <td th:text="${cosmetics.type}"></td>
+        <td th:text="${cosmetics.price}"></td>
+        <td th:text="${cosmetics.popularity}"></td>
+        <td th:text="${cosmetics.quantity}"></td>
+
+    </tr>
+</table>
+<u><b>Snacks</b></u><br />
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Crunchiness</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+    <tr th:each="snacks : ${snacks_}">
+        <td th:text="${snacks.snackName}"></td>
+        <td th:text="${snacks.crunchiness}"></td>
+        <td th:text="${snacks.price}"></td>
+        <td th:text="${snacks.quantity}"></td>
+    </tr>
+    <!--
+    <tr>
+        <td>Snacks total price = </td>
+        <td th:inline="text">Snacks total price = [[${snacksTotalPrice}]]</td>
+    </tr>
+-->
+</table>
+
+<table>
+    <tr>
+        <td th:inline="text"><b>Expected Total Revenue = [[${expectedTotalRevenue}]]</b></td>
+    </tr>
+</table>
+
+</body>
+</html>
