@@ -72,23 +72,23 @@ public class HomeController {
         return "snacks";
     }
 
-
     @PostMapping("/snacks")
     public String snacksProcessForm(@Valid Snacks snacks, BindingResult result){
         if(result.hasErrors()){
             return "snacks";
         }
         snacksRepository.save(snacks);
-        cosmeticsTotalPrice+=((snacks.getPrice())*(snacks.getQuantity()));
+        snacksTotalPrice+=((snacks.getPrice())*(snacks.getQuantity()));
         return "redirect:/";
     }
 
     @RequestMapping("/jbcstore")
     public String jbcstoreIndex(Model model){
+
         model.addAttribute("cleaningitems_",cleaningItemsRepository.findAll());
         model.addAttribute("cosmetics_",cosmeticsRepository.findAll());
         model.addAttribute("snacks_",snacksRepository.findAll());
-        expectedTotalRevenue=cleaningItemsTotalPrice+cosmeticsTotalPrice+cosmeticsTotalPrice;
+        expectedTotalRevenue=cleaningItemsTotalPrice+snacksTotalPrice+cosmeticsTotalPrice;
         model.addAttribute("expectedTotalRevenue",expectedTotalRevenue);
 
         return "jbcstore";
